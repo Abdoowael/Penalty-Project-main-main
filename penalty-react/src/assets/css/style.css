@@ -1,0 +1,517 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: #071a10;
+    color: white;
+    direction: rtl;
+}
+
+/* التنسيق العلوي - Navigation */
+header {
+    background: rgba(6, 44, 28, 0.95);
+    padding: 10px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(40, 167, 69, 0.15);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li { margin: 0 15px; }
+.nav-links li a { text-decoration: none; color: rgba(255,255,255,0.85); transition: 0.3s; font-size: 15px; }
+.nav-links li a:hover, .nav-links li a.active { color: #28a745; }
+
+/* أزرار النافبار الجديدة */
+.nav-btn-create {
+    background: #28a745;
+    color: white !important;
+    border: none;
+    padding: 8px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.nav-btn-create:hover {
+    background: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.nav-btn-login {
+    background: transparent;
+    color: white !important;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    padding: 7px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.nav-btn-login:hover {
+    border-color: #28a745;
+    color: #28a745 !important;
+    background: rgba(40, 167, 69, 0.08);
+}
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-auth span {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+}
+
+.nav-logout-btn {
+    background: rgba(214, 48, 49, 0.15);
+    color: #ff6b6b !important;
+    border: 1px solid rgba(214, 48, 49, 0.3);
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.nav-logout-btn:hover {
+    background: rgba(214, 48, 49, 0.25);
+    border-color: #d63031;
+}
+
+/* --- شغل الموبايل --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none !important;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(6, 44, 28, 0.98);
+        padding: 20px 0;
+        z-index: 999;
+        backdrop-filter: blur(20px);
+    }
+
+    nav ul.active {
+        display: flex !important;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+    }
+
+    .login-btn {
+        display: none !important;
+    }
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* شعار فرصة النصي */
+.logo-text {
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-family: 'Cairo', sans-serif;
+}
+
+.logo-text span {
+    color: #28a745;
+}
+
+nav ul { display: flex; list-style: none; align-items: center; }
+nav ul li { margin: 0 15px; }
+nav ul li a { text-decoration: none; color: rgba(255,255,255,0.85); font-size: 15px; transition: 0.3s; }
+nav ul li a:hover, nav ul li a.active { color: #28a745; }
+
+.login-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(7, 26, 16, 0.6), rgba(7, 26, 16, 0.8)), url('/hero-stadium.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 3px solid #28a745;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, #071a10, transparent);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content .hero-logo-text {
+    font-size: 72px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    font-family: 'Cairo', sans-serif;
+}
+
+.hero-content h1 { font-size: 48px; font-weight: 800; margin-bottom: 10px; }
+.hero-content p { font-size: 20px; margin-bottom: 35px; color: rgba(255,255,255,0.8); }
+
+.btn-green { 
+    background: #28a745; 
+    color: white; 
+    border: none; 
+    padding: 14px 40px; 
+    border-radius: 8px; 
+    margin: 0 10px; 
+    cursor: pointer; 
+    font-size: 17px; 
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-green:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.35);
+}
+
+.btn-white { 
+    background: white; 
+    color: #071a10; 
+    border: none; 
+    padding: 14px 40px; 
+    border-radius: 8px; 
+    margin: 0 10px; 
+    cursor: pointer; 
+    font-size: 17px; 
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-white:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+}
+
+/* قسم اللاعبين */
+.players { padding: 80px 50px; text-align: center; background-color: #071a10; }
+.section-title { 
+    font-size: 35px; 
+    margin-bottom: 50px; 
+    color: white;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #28a745;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.player-card {
+    background: linear-gradient(145deg, #0d2618, #0a1f14);
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(40, 167, 69, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.player-card:hover { 
+    transform: translateY(-8px); 
+    border-color: rgba(40, 167, 69, 0.5); 
+    box-shadow: 0 15px 40px rgba(40, 167, 69, 0.15);
+}
+
+.player-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; height: 280px; object-fit: cover; }
+.player-card h3 { font-size: 18px; margin-bottom: 8px; color: white; }
+.player-card p { color: rgba(255,255,255,0.6); font-size: 14px; }
+.player-card .year { color: rgba(255,255,255,0.5); }
+.player-card .pos { color: #28a745; font-weight: 500; }
+
+.view-btn { 
+    background: #28a745; 
+    color: white; 
+    border: none; 
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 8px; 
+    margin-top: 15px; 
+    cursor: pointer; 
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background: #218838;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.show-all { 
+    background: #28a745; 
+    color: white; 
+    border: none; 
+    padding: 14px 50px; 
+    border-radius: 8px; 
+    font-size: 17px; 
+    cursor: pointer; 
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.show-all:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.35);
+}
+
+/* --- CTA Section --- */
+.cta {
+    height: 450px;
+    background: linear-gradient(rgba(7, 26, 16, 0.7), rgba(7, 26, 16, 0.9)), url('/footer-stadium.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 3px solid #28a745;
+}
+
+.cta h2 { font-size: 38px; font-weight: 800; margin-bottom: 30px; }
+.cta-btn {
+    background: rgba(40, 167, 69, 0.15);
+    color: white;
+    padding: 14px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cta-btn:hover { 
+    background: #28a745; 
+    border-color: #28a745; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.35);
+}
+
+/* الفوتر الجديد */
+footer {
+    background: #062C1C;
+    padding: 50px 50px 30px;
+    border-top: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.footer-brand {
+    font-size: 36px;
+    font-weight: 900;
+    color: white;
+    font-family: 'Cairo', sans-serif;
+}
+
+.footer-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+}
+
+.footer-links { display: flex; list-style: none; }
+.footer-links li { margin-right: 20px; }
+.footer-links li a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 15px; transition: 0.3s; }
+.footer-links li a:hover { color: white; }
+ 
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.social-icons a:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.footer-logo img {
+    max-width: 100%; 
+    height: auto;
+    width: 180px;
+}
+
+/* طبقة النور الديناميكية */
+.player-card, .info-row, .video-placeholder, .login-btn, .social-icons a {
+    position: relative;
+    overflow: hidden !important;
+    transition: transform 0.1s ease-out;
+}
+
+.player-card::before, .info-row::before, .video-placeholder::before, .login-btn::before {
+    content: '';
+    position: absolute;
+    top: var(--mouse-y, -100%);
+    left: var(--mouse-x, -100%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* تنعيم حركة المنيو في الموبايل */
+.nav-links {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* أيقونات الموبايل (الشرط) */
+.is-active .bar:nth-child(2) { opacity: 0; }
+.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #071a10;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #28a745;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #218838;
+}

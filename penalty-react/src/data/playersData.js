@@ -1,0 +1,122 @@
+export const playersData = [
+    {
+        id: 1,
+        name: "محمد أحمد جمعة",
+        year: "2015",
+        position: "هاف شمال",
+        image: "/mohamed.jpg",
+        description: "تفاصيل لاعب محمد أحمد جمعة",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "محمد احمد جمعه.mp4"
+    },
+    {
+        id: 2,
+        name: "أحمد عزمي محمود",
+        year: "2009",
+        position: "جناح شمال",
+        image: "/ahmed.jpg",
+        description: "تفاصيل لاعب أحمد عزمي محمود",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "احمد عزمي محمود.mp4"
+    },
+    {
+        id: 3,
+        name: "يوسف سامح يوسف عمارة",
+        year: "2004",
+        position: "لاعب وسط هجومي متعدد المهام (8, 10, Wings)",
+        image: "/Joe.jpg",
+        description: "تفاصيل لاعب يوسف سامح",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "يوسف سامح يوسف عماره.mp4"
+    },
+    {
+        id: 4,
+        name: "سعد محمد طلبة",
+        year: "2016",
+        position: "خط وسط مهاجم",
+        image: "/saed.jpg",
+        description: "تفاصيل لاعب سعد محمد طلبة",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: ""
+    },
+    {
+        id: 5,
+        name: "عبدالله فارس",
+        year: "2006",
+        position: "حارس مرمى",
+        image: "/abdo.jpg",
+        description: "تفاصيل حارس المرمى عبدالله فارس",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "عبدالله فارس.mp4"
+    },
+    {
+        id: 6,
+        name: "حمدي محمد ابراهيم صبري والي",
+        year: "2009",
+        position: "هاف شمال",
+        image: "/hamdi.jpg",
+        description: "تفاصيل حمدي محمد",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "حمدي محمد ابراهيم صبري.mp4"
+    },
+    {
+        id: 7,
+        name: "علي محمد السيد أبو المعاطي",
+        year: "2008",
+        position: "هاف شمال",
+        image: "/ali.jpg",
+        description: "تفاصيل علي محمد",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "علي محمد السيد ابو المعاطي.mp4"
+    },
+    {
+        id: 8,
+        name: "ابرهيم عبد الباسط عبده",
+        year: "2013",
+        position: "هاف",
+        image: "/ibra.jpg",
+        description: "تفاصيل ابراهيم عبد الباسط",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "ابراهيم عبد الباسط جمال عبدة.mp4"
+    },
+    {
+        id: 9,
+        name: "عبدالرحمن جميل عبدالله محمد",
+        year: "2002",
+        position: "مهاجم",
+        image: "/abd.jpg",
+        description: "تفاصيل عبدالرحمن جميل",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "عبد الرحمن جميل.mp4"
+    },
+    {
+        id: 10,
+        name: "مصطفى زنهم رشاد",
+        year: "2012",
+        position: "حارس مرمى",
+        image: "/mous.jpg",
+        description: "تفاصيل مصطفى زنهم",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "مصطفي زينهم رشاد.mp4"
+    },
+    {
+        id: 11,
+        name: "عمر الخطيب",
+        year: "2015",
+        position: "حارس مرمى",
+        image: "/omar.jpg",
+        description: "تفاصيل عمر الخطيب",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "عمر الخطيب.mp4"
+    },
+    {
+        id: 12,
+        name: "زياد أحمد مصطفى ابراهيم",
+        year: "2009",
+        position: "باك يمين",
+        image: "/zead.jpg",
+        description: "تفاصيل زياد أحمد",
+        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        videoFile: "زياد احمد مصطفي ابراهيم.mp4"
+    }
+];
