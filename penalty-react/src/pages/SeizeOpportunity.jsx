@@ -35,16 +35,16 @@ const SeizeOpportunity = () => {
             <Layout>
                 <div style={{ padding: '150px 20px', textAlign: 'center', minHeight: '60vh' }}>
                     <div style={{ 
-                        background: 'rgba(40, 167, 69, 0.1)', 
+                        background: 'rgba(57, 255, 20, 0.06)', 
                         padding: '40px', 
                         borderRadius: '20px', 
                         maxWidth: '600px', 
                         margin: '0 auto',
-                        border: '1px solid #28a745'
+                        border: '1px solid rgba(57, 255, 20, 0.3)'
                     }}>
-                        <i className="fas fa-check-circle" style={{ fontSize: '64px', color: '#28a745', marginBottom: '20px' }}></i>
+                        <i className="fas fa-check-circle" style={{ fontSize: '64px', color: '#39FF14', marginBottom: '20px' }}></i>
                         <h2 style={{ color: 'white', marginBottom: '10px' }}>تم إرسال طلبك بنجاح!</h2>
-                        <p style={{ color: 'rgba(255,255,255,0.7)' }}>سيقوم المسؤولون بمراجعة مهاراتك والرد عليك في أقرب وقت. سيتم تحويلك للصفحة الرئيسية...</p>
+                        <p style={{ color: 'rgba(255,255,255,0.6)' }}>سيقوم المسؤولون بمراجعة مهاراتك والرد عليك في أقرب وقت. سيتم تحويلك للصفحة الرئيسية...</p>
                     </div>
                 </div>
             </Layout>
@@ -53,7 +53,7 @@ const SeizeOpportunity = () => {
 
     return (
         <Layout>
-            <section className="hero" style={{ height: '300px', background: 'linear-gradient(rgba(7, 26, 16, 0.6), rgba(7, 26, 16, 0.8)), url("/hero-stadium.jpg")' }}>
+            <section className="hero" style={{ height: '300px', background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8), #000000), url('/stadium-bg.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="hero-content">
                     <h1 style={{ fontSize: '3rem' }}>اغتنم فرصتك</h1>
                     <p>اعرض مهاراتك وانضم إلى نجوم فرصة</p>
@@ -110,8 +110,8 @@ const SeizeOpportunity = () => {
                                 value={formData.description} 
                                 onChange={handleChange} 
                                 style={{
-                                    width: '100%', padding: '14px', background: 'rgba(255,255,255,0.05)', 
-                                    border: '1px solid rgba(40, 167, 69, 0.2)', borderRadius: '10px', 
+                                    width: '100%', padding: '14px', background: 'rgba(255,255,255,0.04)', 
+                                    border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '10px', 
                                     color: 'white', fontFamily: 'Cairo', minHeight: '100px'
                                 }}
                                 placeholder="اكتب نبذة عن مسيرتك الكروية..."

@@ -39,55 +39,63 @@ const Login = () => {
     return (
         <main className="login-page">
             <div className="login-header">
-                <span className="login-brand">فرصة</span>
+                <img src="/logo.jpeg" alt="فرصة" style={{ height: '120px', objectFit: 'contain' }} />
             </div>
             <section className="login-wrapper">
-                <h1>تسجيل الدخول</h1>
+                <h1>انشاء حساب / تسجيل الدخول</h1>
                 <p className="login-subtitle">سجل دخولك وابدأ رحلتك مع فرصة</p>
-                <form onSubmit={handleSubmit} noValidate>
-                    <label htmlFor="full_name">الاسم</label>
-                    <input id="full_name" name="full_name" type="text" value={formData.full_name} onChange={handleChange} placeholder="ادخل الاسم" />
-                    {errors.full_name && <span className="field-error">{errors.full_name}</span>}
+                <form onSubmit={handleSubmit} noValidate className="login-box">
+                    <div className="input-group">
+                        <label htmlFor="full_name">الاسم</label>
+                        <input id="full_name" name="full_name" type="text" value={formData.full_name} onChange={handleChange} placeholder="ادخل الاسم" />
+                        {errors.full_name && <span className="field-error" style={{color: '#ff4444', fontSize: '12px'}}>{errors.full_name}</span>}
+                    </div>
 
-                    <label htmlFor="email">البريد الإلكتروني</label>
-                    <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="ادخل البريد الإلكتروني" />
-                    {errors.email && <span className="field-error">{errors.email}</span>}
+                    <div className="input-group">
+                        <label htmlFor="email">البريد الإلكتروني</label>
+                        <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="ادخل البريد الإلكتروني" />
+                        {errors.email && <span className="field-error" style={{color: '#ff4444', fontSize: '12px'}}>{errors.email}</span>}
+                    </div>
 
-                    <label htmlFor="password">كلمة المرور</label>
-                    <input id="password" name="password" type="password" value={formData.password} onChange={handleChange} placeholder="ادخل كلمة المرور" />
-                    {errors.password && <span className="field-error">{errors.password}</span>}
+                    <div className="input-group">
+                        <label htmlFor="password">كلمة المرور</label>
+                        <input id="password" name="password" type="password" value={formData.password} onChange={handleChange} placeholder="ادخل كلمة المرور" />
+                        {errors.password && <span className="field-error" style={{color: '#ff4444', fontSize: '12px'}}>{errors.password}</span>}
+                    </div>
 
-                    <label>نوع الحساب</label>
-                    <div style={{ display: 'flex', gap: '15px', marginBottom: '20px' }}>
-                        <div 
-                            onClick={() => setFormData({ ...formData, role: 'player' })}
-                            style={{
-                                flex: 1, padding: '15px', textAlign: 'center', borderRadius: '10px', cursor: 'pointer',
-                                border: formData.role === 'player' ? '2px solid #28a745' : '1px solid rgba(40, 167, 69, 0.2)',
-                                background: formData.role === 'player' ? 'rgba(40, 167, 69, 0.12)' : 'rgba(255,255,255,0.03)',
-                                color: formData.role === 'player' ? '#28a745' : 'rgba(255,255,255,0.7)',
-                                fontWeight: 'bold', transition: 'all 0.3s'
-                            }}
-                        >
-                            <i className="fas fa-user" style={{display: 'block', fontSize: '24px', marginBottom: '8px'}}></i>
-                            لاعب
-                        </div>
-                        <div 
-                            onClick={() => setFormData({ ...formData, role: 'admin' })}
-                            style={{
-                                flex: 1, padding: '15px', textAlign: 'center', borderRadius: '10px', cursor: 'pointer',
-                                border: formData.role === 'admin' ? '2px solid #d63031' : '1px solid rgba(214, 48, 49, 0.2)',
-                                background: formData.role === 'admin' ? 'rgba(214, 48, 49, 0.12)' : 'rgba(255,255,255,0.03)',
-                                color: formData.role === 'admin' ? '#ff6b6b' : 'rgba(255,255,255,0.7)',
-                                fontWeight: 'bold', transition: 'all 0.3s'
-                            }}
-                        >
-                            <i className="fas fa-user-shield" style={{display: 'block', fontSize: '24px', marginBottom: '8px'}}></i>
-                            مسؤول
+                    <div className="input-group" style={{ marginBottom: '20px' }}>
+                        <label>نوع الحساب</label>
+                        <div style={{ display: 'flex', gap: '15px' }}>
+                            <div 
+                                onClick={() => setFormData({ ...formData, role: 'player' })}
+                                style={{
+                                    flex: 1, padding: '15px', textAlign: 'center', borderRadius: '12px', cursor: 'pointer',
+                                    border: formData.role === 'player' ? '2px solid #39FF14' : '1px solid rgba(255, 255, 255, 0.08)',
+                                    background: formData.role === 'player' ? 'rgba(57, 255, 20, 0.08)' : 'rgba(255,255,255,0.02)',
+                                    color: formData.role === 'player' ? '#39FF14' : 'rgba(255,255,255,0.5)',
+                                    fontWeight: 'bold', transition: 'all 0.3s'
+                                }}
+                            >
+                                <i className="fas fa-user" style={{display: 'block', fontSize: '24px', marginBottom: '8px'}}></i>
+                                لاعب
+                            </div>
+                            <div 
+                                onClick={() => setFormData({ ...formData, role: 'admin' })}
+                                style={{
+                                    flex: 1, padding: '15px', textAlign: 'center', borderRadius: '12px', cursor: 'pointer',
+                                    border: formData.role === 'admin' ? '2px solid #e74c3c' : '1px solid rgba(255, 255, 255, 0.08)',
+                                    background: formData.role === 'admin' ? 'rgba(231, 76, 60, 0.08)' : 'rgba(255,255,255,0.02)',
+                                    color: formData.role === 'admin' ? '#e74c3c' : 'rgba(255,255,255,0.5)',
+                                    fontWeight: 'bold', transition: 'all 0.3s'
+                                }}
+                            >
+                                <i className="fas fa-user-shield" style={{display: 'block', fontSize: '24px', marginBottom: '8px'}}></i>
+                                مسؤول
+                            </div>
                         </div>
                     </div>
 
-                    <button type="submit">دخول</button>
+                    <button type="submit" className="login-btn">دخول</button>
                     
                     <div style={{ textAlign: 'center', marginTop: '15px' }}>
                         <button 
@@ -96,9 +104,11 @@ const Login = () => {
                                 login({ fullName: 'زائر', role: 'guest' });
                                 navigate('/');
                             }}
+                            className="login-btn"
                             style={{ 
-                                background: 'transparent', color: '#28a745', border: '1px solid #28a745', 
-                                padding: '10px 20px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', width: '100%' 
+                                background: 'transparent',
+                                border: '1px solid rgba(57, 255, 20, 0.3)', 
+                                marginTop: '10px'
                             }}
                         >
                             الدخول كـ "زائر" (Guest)

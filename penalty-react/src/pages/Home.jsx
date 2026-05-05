@@ -18,8 +18,11 @@ const Home = () => {
         <Layout>
             <section className="hero">
                 <div className="hero-content">
-                    <h1 className="hero-brand" style={{fontSize: '5rem', marginBottom: '0'}}>فر<span>صة</span></h1>
-                    <p style={{marginTop: '-10px', fontSize: '1.5rem'}}>هنا تبدأ قصه اللاعب</p>
+                    <div className="hero-brand" style={{marginBottom: '10px'}}>
+                        <img src="/logo.jpeg" alt="فرصة" style={{ height: '160px', objectFit: 'contain' }} />
+                    </div>
+                    <h1 style={{fontSize: '2.2rem', marginBottom: '10px'}}>منصة فرصة الرياضية</h1>
+                    <p style={{marginTop: '0', fontSize: '1.3rem'}}>هنا تبدأ قصه اللاعب</p>
                     <div className="hero-btns" style={{marginTop: '30px'}}>
                         <button className="btn-green" onClick={() => navigate('/players')}>أستعرض اللاعبين</button>
                     </div>
@@ -29,7 +32,7 @@ const Home = () => {
             <section className="players">
                 <h2 className="section-title">أبرز اللاعبين</h2>
                 <div className="players-grid">
-                    {players.slice(0, 4).map(player => (
+                    {players?.slice(0, 4)?.map(player => (
                         <div className="player-card" key={player.id} style={{cursor: 'pointer'}} onClick={() => navigate(`/player/${player.id}`)}>
                             <img src={player.image} alt={player.name} />
                             <h3>{player.name}</h3>
@@ -44,9 +47,10 @@ const Home = () => {
                                         onClick={(e) => handleDelete(e, player.id, player.name)}
                                         className="view-btn" 
                                         style={{ 
-                                            flex: 1, padding: '10px', background: '#d63031', 
+                                            flex: 1, padding: '10px', background: 'linear-gradient(135deg, #e74c3c, #c0392b)', 
                                             cursor: 'pointer', border: 'none', color: 'white', 
-                                            borderRadius: '8px', fontSize: '14px', fontWeight: 'bold' 
+                                            borderRadius: '10px', fontSize: '14px', fontWeight: 'bold',
+                                            boxShadow: '0 4px 15px rgba(231, 76, 60, 0.2)'
                                         }}
                                     >
                                         حذف

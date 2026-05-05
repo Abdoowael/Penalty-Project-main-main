@@ -17,30 +17,34 @@ const Players = () => {
 
     return (
         <Layout>
-            <section className="hero" style={{height: '50vh', backgroundPosition: 'top'}}>
+            <section className="hero" style={{height: '45vh', backgroundPosition: 'top'}}>
                 <div className="hero-content">
+                    <h1 style={{fontSize: '2.5rem'}}>اللاعبين</h1>
+                    <p>اكتشف نجوم منصة فرصة</p>
                 </div>
             </section>
 
-            <div className="stadium-header">
-                <div className="shadow-overlay"></div>
-            </div>
-
-            <div className="main-content">
+            <div className="main-content" style={{marginTop: '0'}}>
                 <div className="container">
                     <div className="players-grid">
-                        {players.map(player => (
+                        {players?.map(player => (
                             <div className="player-card" key={player.id} style={{cursor: 'pointer'}} onClick={() => navigate(`/player/${player.id}`)}>
                                 <div className="image-wrapper">
-                                    <img src={player.image} alt="لاعب" />
+                                    <img src={player.image} alt={player.name} />
                                 </div>
                                 <div className="player-data">
                                     <h3>{player.name}</h3>
-                                    <span className="year">{player.year}</span>
+                                    <span className="year">مواليد {player.year}</span>
                                     <p className="position">{player.position}</p>
-                                    <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                                    {player.videoFile && (
+                                        <p style={{ fontSize: '11px', color: 'rgba(57,255,20,0.5)', marginBottom: '8px' }}>
+                                            <i className="fas fa-video" style={{marginLeft: '5px'}}></i>
+                                            يوجد فيديو مهارات
+                                        </p>
+                                    )}
+                                    <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
                                         <button className="details-btn" style={{ flex: 1, marginTop: '0', padding: '0' }} onClick={(e) => e.stopPropagation()}>
-                                            <Link to={`/player/${player.id}`} style={{color: 'white', textDecoration: 'none', display: 'block', padding: '8px 0'}}>عرض</Link>
+                                            <Link to={`/player/${player.id}`} style={{color: '#000', textDecoration: 'none', display: 'block', padding: '8px 0', fontWeight: '700'}}>عرض التفاصيل</Link>
                                         </button>
                                         {user && user.role === 'admin' && (
                                             <button 
@@ -48,7 +52,7 @@ const Players = () => {
                                                 className="details-btn" 
                                                 style={{ 
                                                     flex: 1, marginTop: '0', background: '#d63031', 
-                                                    cursor: 'pointer', border: 'none' 
+                                                    cursor: 'pointer', border: 'none', color: 'white' 
                                                 }}
                                             >
                                                 حذف
