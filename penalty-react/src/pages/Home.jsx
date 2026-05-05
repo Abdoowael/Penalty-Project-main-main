@@ -35,7 +35,7 @@ const Home = () => {
                             <p className="pos">{player.position}</p>
                             <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
                                 <button className="view-btn" style={{padding: 0, flex: 1}} onClick={(e) => e.stopPropagation()}>
-                                    <Link to={`/player/${player.id}`} style={{color: 'white', textDecoration: 'none', display: 'block', padding: '10px'}}>عرض</Link>
+                                    <Link to={`/player/${player.id}`} style={{color: 'white', textDecoration: 'none', display: 'block', padding: '10px'}}>عرض بيانات اللاعب</Link>
                                 </button>
                                 {user && user.role === 'admin' && (
                                     <button 

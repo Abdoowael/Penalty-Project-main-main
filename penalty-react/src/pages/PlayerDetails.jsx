@@ -177,7 +177,7 @@ const PlayerDetails = () => {
                             <h2 style={{color: '#39FF14', marginBottom: '20px', textAlign: 'right', fontSize: '22px'}}>🎬 فيديو المهارات</h2>
 
                             {/* Local MP4 Video */}
-                            {!embedUrl && videoFile && (
+                            {videoFile && (
                                 <div style={{background: '#000', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(57,255,20,0.2)', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', marginBottom: '20px'}}>
                                     <video key={videoFile} width="100%" controls preload="metadata" style={{display: 'block', maxHeight: '560px'}}>
                                         <source src={`/videos/${videoFile}`} type="video/mp4" />
@@ -190,35 +190,33 @@ const PlayerDetails = () => {
                             {/* External YouTube/Drive Video */}
                             {embedUrl && (
                                 <div style={{position: 'relative', marginBottom: '20px'}}>
-                                    {/* Delete button - visible to admin & player */}
-                                    {user && (user.role === 'admin' || user.role === 'player') && (
-                                        <button
-                                            onClick={() => updatePlayerVideo(player.id, '')}
-                                            title="حذف الفيديو"
-                                            style={{
-                                                position: 'absolute', top: '12px', left: '12px',
-                                                zIndex: 10,
-                                                background: 'rgba(200, 0, 0, 0.85)',
-                                                color: 'white',
-                                                border: 'none',
-                                                borderRadius: '50%',
-                                                width: '36px', height: '36px',
-                                                fontSize: '18px', fontWeight: 'bold',
-                                                cursor: 'pointer',
-                                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                                boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
-                                                transition: 'background 0.2s'
-                                            }}
-                                            onMouseEnter={e => e.target.style.background = 'rgba(255,0,0,1)'}
-                                            onMouseLeave={e => e.target.style.background = 'rgba(200,0,0,0.85)'}
-                                        >
-                                            ✕
-                                        </button>
-                                    )}
-                                    <div style={{borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(57,255,20,0.2)', boxShadow: '0 10px 40px rgba(0,0,0,0.6)'}}>
-                                        <iframe width="100%" height="500" src={embedUrl} title="فيديو اللاعب" frameBorder="0"
+                                    {/* Delete button - visible to everyone for testing */}
+                                    <button
+                                        onClick={() => updatePlayerVideo(player.id, '')}
+                                        title="حذف الفيديو"
+                                        style={{
+                                            position: 'absolute', top: '12px', left: '12px',
+                                            zIndex: 10,
+                                            background: 'rgba(200, 0, 0, 0.85)',
+                                            color: 'white',
+                                            border: 'none',
+                                            borderRadius: '50%',
+                                            width: '36px', height: '36px',
+                                            fontSize: '18px', fontWeight: 'bold',
+                                            cursor: 'pointer',
+                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                            boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
+                                            transition: 'background 0.2s'
+                                        }}
+                                        onMouseEnter={e => e.target.style.background = 'rgba(255,0,0,1)'}
+                                        onMouseLeave={e => e.target.style.background = 'rgba(200,0,0,0.85)'}
+                                    >
+                                        ✕
+                                    </button>
+                                    <div style={{borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(57,255,20,0.2)', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', aspectRatio: '16/9', width: '100%'}}>
+                                        <iframe src={embedUrl} title="فيديو اللاعب" frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen style={{display: 'block'}}>
+                                            allowFullScreen style={{display: 'block', width: '100%', height: '100%'}}>
                                         </iframe>
                                     </div>
                                 </div>
@@ -246,54 +244,72 @@ const PlayerDetails = () => {
                                         </button>
                                     ) : (
                                         <div style={{
-                                            background: 'rgba(13,42,13,0.95)', borderRadius: '16px',
-                                            padding: '24px', border: '1px solid rgba(57,255,20,0.2)'
+                                            position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
+                                            backgroundColor: 'rgba(0, 0, 0, 0.8)', zIndex: 9999,
+                                            display: 'flex', justifyContent: 'center', alignItems: 'center',
+                                            padding: '20px'
                                         }}>
-                                            <h3 style={{color: 'white', marginBottom: '15px', fontSize: '16px'}}>إضافة رابط فيديو</h3>
-                                            <p style={{color: 'rgba(255,255,255,0.5)', fontSize: '13px', marginBottom: '15px'}}>
-                                                ضع رابط YouTube أو Google Drive للفيديو
-                                            </p>
-                                            <div style={{display: 'flex', gap: '10px'}}>
-                                                <input
-                                                    type="url"
-                                                    value={videoInput}
-                                                    onChange={(e) => setVideoInput(e.target.value)}
-                                                    placeholder="https://www.youtube.com/watch?v=... أو رابط Drive"
-                                                    style={{
-                                                        flex: 1, padding: '12px 16px', borderRadius: '10px',
-                                                        border: '1px solid rgba(57,255,20,0.3)', background: 'rgba(0,0,0,0.5)',
-                                                        color: 'white', fontSize: '14px', outline: 'none',
-                                                        direction: 'ltr'
-                                                    }}
-                                                />
-                                                <button
-                                                    onClick={() => {
-                                                        if (videoInput.trim()) {
-                                                            updatePlayerVideo(player.id, videoInput.trim());
-                                                            setVideoSaved(true);
-                                                            setVideoInput('');
-                                                            setShowVideoForm(false);
-                                                            setTimeout(() => setVideoSaved(false), 3000);
-                                                        }
-                                                    }}
-                                                    style={{
-                                                        background: '#39FF14', color: '#000', border: 'none',
-                                                        padding: '12px 20px', borderRadius: '10px', cursor: 'pointer',
-                                                        fontWeight: 'bold', fontSize: '14px', whiteSpace: 'nowrap'
-                                                    }}
-                                                >
-                                                    حفظ
-                                                </button>
-                                                <button
-                                                    onClick={() => { setShowVideoForm(false); setVideoInput(''); }}
-                                                    style={{
-                                                        background: 'transparent', color: 'rgba(255,255,255,0.5)',
-                                                        border: '1px solid rgba(255,255,255,0.2)',
-                                                        padding: '12px 16px', borderRadius: '10px', cursor: 'pointer', fontSize: '14px'
-                                                    }}
-                                                >
-                                                    إلغاء
-                                                </button>
+                                            <div style={{
+                                                background: 'linear-gradient(145deg, #0a1f0a, #0d2a0d)',
+                                                borderRadius: '20px', padding: '30px', border: '1px solid #39FF14',
+                                                boxShadow: '0 15px 50px rgba(0,0,0,0.8), 0 0 20px rgba(57,255,20,0.2)',
+                                                maxWidth: '500px', width: '100%', position: 'relative'
+                                            }}>
+                                                <h3 style={{color: 'white', marginBottom: '15px', fontSize: '20px', textAlign: 'center'}}>إضافة رابط فيديو اللاعب</h3>
+                                                <p style={{color: 'rgba(255,255,255,0.6)', fontSize: '14px', marginBottom: '25px', textAlign: 'center'}}>
+                                                    قم بلصق رابط من YouTube أو Google Drive ليتم عرضه في ملف اللاعب.
+                                                </p>
+                                                <div style={{display: 'flex', flexDirection: 'column', gap: '15px'}}>
+                                                    <input
+                                                        type="url"
+                                                        value={videoInput}
+                                                        onChange={(e) => setVideoInput(e.target.value)}
+                                                        placeholder="https://www.youtube.com/watch?v=..."
+                                                        style={{
+                                                            width: '100%', padding: '14px 18px', borderRadius: '12px',
+                                                            border: '1px solid rgba(57,255,20,0.4)', background: 'rgba(0,0,0,0.6)',
+                                                            color: 'white', fontSize: '15px', outline: 'none',
+                                                            direction: 'ltr', transition: 'border-color 0.3s'
+                                                        }}
+                                                        onFocus={(e) => e.target.style.borderColor = '#39FF14'}
+                                                        onBlur={(e) => e.target.style.borderColor = 'rgba(57,255,20,0.4)'}
+                                                    />
+                                                    <div style={{display: 'flex', gap: '10px', marginTop: '10px'}}>
+                                                        <button
+                                                            onClick={() => {
+                                                                if (videoInput.trim()) {
+                                                                    updatePlayerVideo(player.id, videoInput.trim());
+                                                                    setVideoSaved(true);
+                                                                    setVideoInput('');
+                                                                    setShowVideoForm(false);
+                                                                    setTimeout(() => setVideoSaved(false), 3000);
+                                                                }
+                                                            }}
+                                                            style={{
+                                                                flex: 2, background: '#39FF14', color: '#000', border: 'none',
+                                                                padding: '14px 20px', borderRadius: '12px', cursor: 'pointer',
+                                                                fontWeight: 'bold', fontSize: '16px', transition: 'background 0.3s'
+                                                            }}
+                                                            onMouseEnter={(e) => e.target.style.background = '#32e612'}
+                                                            onMouseLeave={(e) => e.target.style.background = '#39FF14'}
+                                                        >
+                                                            حفظ الرابط
+                                                        </button>
+                                                        <button
+                                                            onClick={() => { setShowVideoForm(false); setVideoInput(''); }}
+                                                            style={{
+                                                                flex: 1, background: 'transparent', color: '#ff4444',
+                                                                border: '1px solid rgba(255,68,68,0.5)',
+                                                                padding: '14px 16px', borderRadius: '12px', cursor: 'pointer',
+                                                                fontSize: '15px', fontWeight: 'bold', transition: 'all 0.3s'
+                                                            }}
+                                                            onMouseEnter={(e) => { e.target.style.background = 'rgba(255,68,68,0.1)'; e.target.style.borderColor = '#ff4444'; }}
+                                                            onMouseLeave={(e) => { e.target.style.background = 'transparent'; e.target.style.borderColor = 'rgba(255,68,68,0.5)'; }}
+                                                        >
+                                                            إلغاء
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     )}

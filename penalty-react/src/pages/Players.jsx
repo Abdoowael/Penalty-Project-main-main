@@ -44,7 +44,7 @@ const Players = () => {
                                     )}
                                     <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
                                         <button className="details-btn" style={{ flex: 1, marginTop: '0', padding: '0' }} onClick={(e) => e.stopPropagation()}>
-                                            <Link to={`/player/${player.id}`} style={{color: '#000', textDecoration: 'none', display: 'block', padding: '8px 0', fontWeight: '700'}}>عرض التفاصيل</Link>
+                                            <Link to={`/player/${player.id}`} style={{color: '#000', textDecoration: 'none', display: 'block', padding: '8px 0', fontWeight: '700'}}>عرض بيانات اللاعب</Link>
                                         </button>
                                         {user && user.role === 'admin' && (
                                             <button 

@@ -25,14 +25,18 @@ const Header = () => {
                 <nav>
                     <div className="logo">
                         <Link to="/" className="logo-text" style={{textDecoration: 'none'}}>
-                            <img src="/Logo.png" alt="فرصة" style={{ width: '280px', height: 'auto', objectFit: 'contain' }} />
+                            <img src="/Logo.png" alt="فرصة" className="header-logo-img" />
                         </Link>
                     </div>
 
-                    <div className={`menu-toggle ${isMenuOpen ? 'is-active' : ''}`} onClick={toggleMenu}>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
+                    <div className={`menu-toggle ${isMenuOpen ? 'is-active' : ''}`} onClick={toggleMenu} style={isMenuOpen ? { fontSize: '28px', color: '#39FF14', display: 'flex', alignItems: 'center', justifyContent: 'center' } : {}}>
+                        {isMenuOpen ? '✕' : (
+                            <>
+                                <span className="bar"></span>
+                                <span className="bar"></span>
+                                <span className="bar"></span>
+                            </>
+                        )}
                     </div>
 
                     <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>

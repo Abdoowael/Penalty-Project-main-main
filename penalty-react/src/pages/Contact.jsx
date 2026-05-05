@@ -68,7 +68,7 @@ const Contact = () => {
                     <div style={{ marginTop: '30px' }}>
                         <h3 style={{ color: 'white', fontSize: '18px', marginBottom: '20px', fontWeight: '700' }}>تابعنا على</h3>
                         <div style={{ display: 'flex', gap: '15px', justifyContent: 'center' }}>
-                            <a href="#" style={{
+                            <a href="https://www.facebook.com/DVlottery0" target="_blank" rel="noopener noreferrer" style={{
                                 width: '50px', height: '50px', borderRadius: '50%',
                                 background: '#0D2A0D', border: '1px solid rgba(57, 255, 20, 0.2)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
