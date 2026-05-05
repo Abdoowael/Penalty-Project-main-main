@@ -18,14 +18,9 @@ const Home = () => {
         <Layout>
             <section className="hero">
                 <div className="hero-content">
-                    <div className="hero-brand" style={{marginBottom: '10px'}}>
-                        <img src="/logo.jpeg" alt="فرصة" style={{ height: '160px', objectFit: 'contain' }} />
-                    </div>
-                    <h1 style={{fontSize: '2.2rem', marginBottom: '10px'}}>منصة فرصة الرياضية</h1>
-                    <p style={{marginTop: '0', fontSize: '1.3rem'}}>هنا تبدأ قصه اللاعب</p>
-                    <div className="hero-btns" style={{marginTop: '30px'}}>
-                        <button className="btn-green" onClick={() => navigate('/players')}>أستعرض اللاعبين</button>
-                    </div>
+
+                    <h1 style={{fontSize: '2.2rem', marginBottom: '10px'}}>من هنا تبدأ فرصتك</h1>
+                    <p style={{marginTop: '0', fontSize: '1.3rem'}}>من الملعب الصغير ...لفرص كبيرة تستاهلها</p>
                 </div>
             </section>
 

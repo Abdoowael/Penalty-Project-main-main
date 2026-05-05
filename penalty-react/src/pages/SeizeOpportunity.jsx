@@ -13,6 +13,8 @@ const SeizeOpportunity = () => {
         position: '',
         height: '',
         weight: '',
+        residence: '',
+        club: '',
         image: '',
         youtube: '',
         description: ''
@@ -93,14 +95,25 @@ const SeizeOpportunity = () => {
                             </div>
                         </div>
 
+                        <div className="form-row">
+                            <div className="form-group half-width">
+                                <label>محل الإقامة</label>
+                                <input type="text" name="residence" value={formData.residence} onChange={handleChange} placeholder="مثال: تلبانة" />
+                            </div>
+                            <div className="form-group half-width">
+                                <label>الأكاديمية / النادي</label>
+                                <input type="text" name="club" value={formData.club} onChange={handleChange} placeholder="مثال: أكاديمية المنصورة" />
+                            </div>
+                        </div>
+
                         <div className="form-group">
                             <label>رابط الصورة الشخصية</label>
                             <input type="url" name="image" value={formData.image} onChange={handleChange} required placeholder="رابط مباشر لصورة واضحة" />
                         </div>
 
                         <div className="form-group">
-                            <label>رابط فيديو المهارات (يوتيوب أو جوجل درايف)</label>
-                            <input type="url" name="youtube" value={formData.youtube} onChange={handleChange} placeholder="رابط فيديو يعرض مهاراتك" />
+                            <label>رابط فيديو المهارات (YouTube أو Google Drive)</label>
+                            <input type="url" name="youtube" value={formData.youtube} onChange={handleChange} placeholder="مثال: https://www.youtube.com/watch?v=... أو رابط Drive" />
                         </div>
 
                         <div className="form-group">

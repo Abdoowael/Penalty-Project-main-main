@@ -38,9 +38,7 @@ const Login = () => {
 
     return (
         <main className="login-page">
-            <div className="login-header">
-                <img src="/logo.jpeg" alt="فرصة" style={{ height: '120px', objectFit: 'contain' }} />
-            </div>
+
             <section className="login-wrapper">
                 <h1>انشاء حساب / تسجيل الدخول</h1>
                 <p className="login-subtitle">سجل دخولك وابدأ رحلتك مع فرصة</p>
@@ -106,9 +104,9 @@ const Login = () => {
                             }}
                             className="login-btn"
                             style={{ 
+                                width: '100%',
                                 background: 'transparent',
-                                border: '1px solid rgba(57, 255, 20, 0.3)', 
-                                marginTop: '10px'
+                                border: '1px solid rgba(57, 255, 20, 0.3)'
                             }}
                         >
                             الدخول كـ "زائر" (Guest)

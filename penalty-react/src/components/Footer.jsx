@@ -14,7 +14,7 @@ const Footer = () => {
                 <div className="footer-right">
                     <div className="footer-tagline">منصة قري مصر للرياضة</div>
                     <div className="footer-brand">
-                        <img src="/logo.jpeg" alt="فرصة" style={{ height: '80px', objectFit: 'contain' }} />
+                        <img src="/Logo.png" alt="فرصة" style={{ height: '170px', objectFit: 'contain' }} />
                     </div>
                 </div>
             </div>

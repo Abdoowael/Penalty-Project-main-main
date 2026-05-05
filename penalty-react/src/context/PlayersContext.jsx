@@ -6,7 +6,15 @@ export const PlayersContext = createContext();
 export const PlayersProvider = ({ children }) => {
     const [players, setPlayers] = useState(() => {
         const savedPlayers = localStorage.getItem('playersData');
-        return savedPlayers ? JSON.parse(savedPlayers) : initialPlayersData;
+        if (savedPlayers) {
+            const parsed = JSON.parse(savedPlayers);
+            // Merge: keep saved data but fill missing fields from initialPlayersData
+            return initialPlayersData.map(orig => {
+                const saved = parsed.find(p => p.id === orig.id);
+                return saved ? { ...orig, ...saved } : orig;
+            }).concat(parsed.filter(p => !initialPlayersData.find(o => o.id === p.id)));
+        }
+        return initialPlayersData;
     });
 
     const [applications, setApplications] = useState(() => {
@@ -32,12 +40,20 @@ export const PlayersProvider = ({ children }) => {
             height: newPlayer.height || "غير محدد",
             weight: newPlayer.weight ? (typeof newPlayer.weight === 'string' && newPlayer.weight.includes('كجم') ? newPlayer.weight : `${newPlayer.weight} كجم`) : "غير محدد",
             position: newPlayer.position,
-            image: newPlayer.image || "/logo.jpeg",
+            residence: newPlayer.residence || '',
+            club: newPlayer.club || '',
+            image: newPlayer.image || "/Logo.png",
             description: newPlayer.description || `لاعب جديد انضم إلينا مؤخراً في مركز ${newPlayer.position}.`,
             youtube: newPlayer.youtube || ""
         };
 
         setPlayers(prevPlayers => [playerToAdd, ...prevPlayers]);
+    };
+
+    const updatePlayerVideo = (playerId, videoUrl) => {
+        setPlayers(prev => prev.map(p =>
+            p.id === playerId ? { ...p, youtube: videoUrl } : p
+        ));
     };
 
     const submitApplication = (appData) => {
@@ -74,7 +90,8 @@ export const PlayersProvider = ({ children }) => {
             applications, 
             submitApplication, 
             approveApplication, 
-            rejectApplication 
+            rejectApplication,
+            updatePlayerVideo
         }}>
             {children}
         </PlayersContext.Provider>

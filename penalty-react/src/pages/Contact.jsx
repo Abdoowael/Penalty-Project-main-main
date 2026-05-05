@@ -14,9 +14,7 @@ const Contact = () => {
                 textAlign: 'center'
             }}>
                 <div className="hero-content">
-                    <div style={{marginBottom: '10px'}}>
-                        <img src="/logo.jpeg" alt="فرصة" style={{ height: '130px', objectFit: 'contain' }} />
-                    </div>
+
                     <h1 style={{fontSize: '2rem', marginBottom: '10px'}}>تواصل معنا</h1>
                     <p style={{fontSize: '1.1rem', color: 'rgba(255,255,255,0.55)'}}>نحن هنا لمساعدتك</p>
                 </div>
