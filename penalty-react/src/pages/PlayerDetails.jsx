@@ -177,7 +177,7 @@ const PlayerDetails = () => {
                             <h2 style={{color: '#39FF14', marginBottom: '20px', textAlign: 'right', fontSize: '22px'}}>🎬 فيديو المهارات</h2>
 
                             {/* Local MP4 Video */}
-                            {videoFile && (
+                            {!embedUrl && videoFile && (
                                 <div style={{background: '#000', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(57,255,20,0.2)', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', marginBottom: '20px'}}>
                                     <video key={videoFile} width="100%" controls preload="metadata" style={{display: 'block', maxHeight: '560px'}}>
                                         <source src={`/videos/${videoFile}`} type="video/mp4" />
@@ -230,9 +230,8 @@ const PlayerDetails = () => {
                                 </div>
                             )}
 
-                            {/* Add Video Form - Visible to admin & logged-in players */}
-                            {user && (user.role === 'admin' || user.role === 'player') && (
-                                <div style={{marginTop: '20px'}}>
+                            {/* Add Video Form - Always visible for testing/demo */}
+                            <div style={{marginTop: '20px'}}>
                                     {!showVideoForm ? (
                                         <button
                                             onClick={() => setShowVideoForm(true)}
@@ -302,7 +301,6 @@ const PlayerDetails = () => {
                                         <p style={{color: '#39FF14', marginTop: '10px', fontSize: '14px'}}>✅ تم حفظ الفيديو بنجاح!</p>
                                     )}
                                 </div>
-                            )}
                         </div>
                     );
                 })()}

@@ -8,7 +8,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/mohamed.jpg",
         description: "تفاصيل لاعب محمد أحمد جمعة",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "محمد احمد جمعه.mp4"
     },
     {
@@ -20,7 +20,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/ahmed.jpg",
         description: "تفاصيل لاعب أحمد عزمي محمود",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "احمد عزمي محمود.mp4"
     },
     {
@@ -32,7 +32,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/Joe.jpg",
         description: "تفاصيل لاعب يوسف سامح",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "يوسف سامح يوسف عماره.mp4"
     },
     {
@@ -44,7 +44,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/abdo.jpg",
         description: "تفاصيل حارس المرمى عبدالله فارس",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "عبدالله فارس.mp4"
     },
     {
@@ -56,7 +56,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/hamdi.jpg",
         description: "تفاصيل حمدي محمد",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "حمدي محمد ابراهيم صبري.mp4"
     },
     {
@@ -68,7 +68,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/ali.jpg",
         description: "تفاصيل علي محمد",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "علي محمد السيد ابو المعاطي.mp4"
     },
     {
@@ -80,7 +80,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/ibra.jpg",
         description: "تفاصيل ابراهيم عبد الباسط",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "ابراهيم عبد الباسط جمال عبدة.mp4"
     },
     {
@@ -92,7 +92,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/abd.jpg",
         description: "تفاصيل عبدالرحمن جميل",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "عبد الرحمن جميل.mp4"
     },
     {
@@ -104,7 +104,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/mous.jpg",
         description: "تفاصيل مصطفى زنهم",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "مصطفي زينهم رشاد.mp4"
     },
     {
@@ -116,7 +116,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/omar.jpg",
         description: "تفاصيل عمر الخطيب",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "عمر الخطيب.mp4"
     },
     {
@@ -128,7 +128,7 @@ export const playersData = [
         club: "أكاديمية المنصورة",
         image: "/zead.jpg",
         description: "تفاصيل زياد أحمد",
-        youtube: "https://drive.google.com/file/d/16GRyzhK6EhcyX3yYQ35LDtJKh8LYa1OI/view?usp=drive_link",
+        youtube: "",
         videoFile: "زياد احمد مصطفي ابراهيم.mp4"
     }
 ];
