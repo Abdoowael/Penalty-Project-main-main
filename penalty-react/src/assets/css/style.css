@@ -256,9 +256,16 @@ nav {
 }
 
 .logo img {
-    height: 55px;
+    height: 110px;
     width: auto;
     object-fit: contain;
+    transition: height 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .logo img {
+        height: 55px;
+    }
 }
 
 .logo-text {
