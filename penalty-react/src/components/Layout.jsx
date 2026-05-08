@@ -4,8 +4,15 @@ import Footer from './Footer';
 
 const Layout = ({ children }) => {
     useEffect(() => {
-        // Dynamic glow effect logic from script.js
+        const cursor = document.querySelector('.custom-cursor');
+        
         const handleMouseMove = (e) => {
+            if (cursor) {
+                // Using transform for better performance
+                cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+            }
+
+            // Dynamic glow effect logic for cards
             const elements = document.querySelectorAll('.player-card, .info-row, .video-placeholder, .login-btn, .social-icons a, .stadium-header');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -16,12 +23,46 @@ const Layout = ({ children }) => {
             });
         };
 
+        const handleMouseEnter = () => cursor?.classList.add('cursor-active');
+        const handleMouseLeave = () => cursor?.classList.remove('cursor-active');
+
         window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        
+        // Intersection Observer for scroll reveal
+        const revealCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.1
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+
+        // Add hover effect for all links and buttons
+        const interactables = document.querySelectorAll('a, button, .player-card');
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', handleMouseEnter);
+            el.addEventListener('mouseleave', handleMouseLeave);
+        });
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            interactables.forEach(el => {
+                el.removeEventListener('mouseenter', handleMouseEnter);
+                el.removeEventListener('mouseleave', handleMouseLeave);
+            });
+        };
     }, []);
 
     return (
         <>
+            <div className="custom-cursor"></div>
             <Header />
             <main>
                 {children}

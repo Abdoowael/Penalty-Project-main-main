@@ -18,6 +18,47 @@ body {
     direction: rtl;
 }
 
+.custom-cursor {
+    width: 12px;
+    height: 12px;
+    background: #39FF14;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 15px #39FF14, 0 0 30px rgba(57, 255, 20, 0.5);
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+}
+
+.custom-cursor.cursor-active {
+    width: 40px;
+    height: 40px;
+    background: rgba(57, 255, 20, 0.15);
+    border: 2px solid #39FF14;
+}
+
+/* ==================
+   SCROLL REVEAL ANIMATIONS
+   ================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure links and buttons still feel like they can be clicked */
+a, button, .player-card, .view-btn {
+    cursor: pointer !important;
+}
+
 /* ==================
    SOCIAL BAR (Top)
    ================== */
@@ -28,11 +69,11 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .social-topbar a {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
     transition: color 0.3s;
     text-decoration: none;
@@ -87,7 +128,9 @@ nav {
     justify-content: center;
 }
 
-.nav-links li { margin: 0 15px; }
+.nav-links li {
+    margin: 0 15px;
+}
 
 .nav-links li a {
     text-decoration: none;
@@ -105,7 +148,9 @@ nav {
     right: 0;
     width: 0;
     height: 2px;
-    background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14;
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
     transition: width 0.3s ease;
 }
 
@@ -121,7 +166,9 @@ nav {
 
 /* Auth Buttons in Nav */
 .nav-btn-create {
-    background: #0D2A0D !important; color: #39FF14  !important; border: 1px solid #39FF14;
+    background: #0D2A0D !important;
+    color: #39FF14 !important;
+    border: 1px solid #39FF14;
     padding: 8px 22px;
     border-radius: 25px;
     cursor: pointer;
@@ -257,14 +304,15 @@ nav {
 
 .logo img {
     height: 110px;
-    width: auto;
-    object-fit: contain;
+    width: 450px;
+    object-fit: fill;
     transition: height 0.3s ease;
 }
 
 @media (max-width: 1024px) {
     .logo img {
-        height: 55px;
+        height: 50px;
+        width: 180px;
     }
 }
 
@@ -280,13 +328,32 @@ nav {
     color: #39FF14;
 }
 
-nav ul { display: flex; list-style: none; align-items: center; }
-nav ul li { margin: 0 14px; }
-nav ul li a { text-decoration: none; color: rgba(255, 255, 255, 0.65); font-size: 14px; transition: 0.3s; }
-nav ul li a:hover, nav ul li a.active { color: #39FF14; }
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 14px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #39FF14;
+}
 
 .login-btn {
-    background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14;
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
     padding: 8px 25px;
     border-radius: 25px;
     cursor: pointer;
@@ -295,7 +362,8 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
 }
 
 .login-btn:hover {
-    background: #39FF14 ; color: #000000;
+    background: #39FF14;
+    color: #000000;
     box-shadow: 0 4px 20px rgba(57, 255, 20, 0.35);
 }
 
@@ -305,7 +373,7 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
 .hero {
     height: 100vh;
     background:
-        linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, #000000 100%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, #000000 100%),
         url('/stadium-bg.jpeg');
     background-size: cover;
     background-position: center top;
@@ -314,7 +382,8 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
     align-items: center;
     text-align: center;
     position: relative;
-    padding-top: 80px; /* Accounts for fixed navbar height */
+    padding-top: 80px;
+    /* Accounts for fixed navbar height */
 }
 
 .hero::after {
@@ -330,7 +399,8 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
 .hero-content {
     position: relative;
     z-index: 2;
-    margin-top: 80px; /* Push content down significantly so it's clearly visible */
+    margin-top: 80px;
+    /* Push content down significantly so it's clearly visible */
 }
 
 .hero-content .hero-logo-text {
@@ -360,7 +430,9 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
 
 /* Buttons */
 .btn-green {
-    background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14;
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
     padding: 14px 45px;
     border-radius: 30px;
     margin: 0 10px;
@@ -373,7 +445,8 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
 }
 
 .btn-green:hover {
-    background: #39FF14 ; color: #000000;
+    background: #39FF14;
+    color: #000000;
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(57, 255, 20, 0.4);
 }
@@ -418,7 +491,9 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
     display: block;
     width: 50px;
     height: 3px;
-    background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14;
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
     margin: 12px auto 0;
     border-radius: 2px;
 }
@@ -436,15 +511,36 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
     padding: 18px;
     border-radius: 14px;
     border: 1px solid rgba(57, 255, 20, 0.1);
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.player-card::before {
+    content: '';
+    position: absolute;
+    top: var(--mouse-y);
+    left: var(--mouse-x);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.25) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .player-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(57, 255, 20, 0.4);
-    box-shadow: 0 20px 50px rgba(57, 255, 20, 0.08);
+    transform: translateY(-12px) scale(1.02) rotateX(2deg) rotateY(2deg);
+    border-color: rgba(57, 255, 20, 0.6);
+    box-shadow: 0 15px 40px rgba(57, 255, 20, 0.15), 0 0 20px rgba(57, 255, 20, 0.1);
+}
+
+.player-card:hover::before {
+    width: 400px;
+    height: 400px;
 }
 
 .player-card img {
@@ -453,15 +549,43 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
     margin-bottom: 15px;
     height: 280px;
     object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-.player-card h3 { font-size: 18px; margin-bottom: 6px; color: white; font-weight: 700; }
-.player-card p { color: rgba(255, 255, 255, 0.45); font-size: 14px; }
-.player-card .year { color: rgba(255, 255, 255, 0.35); }
-.player-card .pos { color: #39FF14; font-weight: 600; }
+.player-card:hover img {
+    transform: scale(1.05);
+}
+
+.player-card h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: white;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.player-card:hover h3 {
+    color: #39FF14;
+}
+
+.player-card p {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 14px;
+}
+
+.player-card .year {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.player-card .pos {
+    color: #39FF14;
+    font-weight: 600;
+}
 
 .view-btn {
-    background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14;
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
     width: 100%;
     padding: 10px;
     border-radius: 8px;
@@ -472,11 +596,15 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
 }
 
 .view-btn:hover {
-    background: #39FF14 ; color: #000000;
+    background: #39FF14;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
 }
 
 .show-all {
-    background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14;
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
     padding: 14px 50px;
     border-radius: 30px;
     font-size: 16px;
@@ -488,7 +616,8 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
 }
 
 .show-all:hover {
-    background: #39FF14 ; color: #000000;
+    background: #39FF14;
+    color: #000000;
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(57, 255, 20, 0.35);
 }
@@ -528,7 +657,10 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
 }
 
 .cta-btn:hover {
-    background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14;border-color: #39FF14;
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
+    border-color: #39FF14;
     box-shadow: 0 6px 25px rgba(57, 255, 20, 0.4);
 }
 
@@ -537,7 +669,7 @@ nav ul li a:hover, nav ul li a.active { color: #39FF14; }
    ================== */
 footer {
     background: #0D2A0D;
-    padding: 40px 50px 30px;
+    padding: 15px 50px 10px;
     border-top: 2px solid #39FF14;
 }
 
@@ -567,10 +699,25 @@ footer {
     color: rgba(255, 255, 255, 0.5);
 }
 
-.footer-links { display: flex; list-style: none; }
-.footer-links li { margin-right: 20px; }
-.footer-links li a { color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 14px; transition: 0.3s; }
-.footer-links li a:hover { color: #39FF14; }
+.footer-links {
+    display: flex;
+    list-style: none;
+}
+
+.footer-links li {
+    margin-right: 20px;
+}
+
+.footer-links li a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links li a:hover {
+    color: #39FF14;
+}
 
 .social-icons {
     display: flex;
@@ -593,7 +740,10 @@ footer {
 }
 
 .social-icons a:hover {
-    background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14;border-color: #39FF14;
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
+    border-color: #39FF14;
     transform: translateY(-2px);
 }
 
@@ -603,10 +753,49 @@ footer {
     width: 180px;
 }
 
+@media (max-width: 768px) {
+    footer {
+        padding: 15px 20px 10px !important;
+    }
+
+    .footer-container {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .footer-right {
+        flex-direction: column !important;
+        gap: 5px !important;
+    }
+
+    .footer-right .footer-brand img {
+        width: 200px !important;
+        height: 60px !important;
+    }
+
+    .footer-tagline {
+        font-size: 11px !important;
+    }
+
+    .social-icons {
+        gap: 8px;
+    }
+
+    .social-icons a {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}
+
 /* ==================
    DYNAMIC GLOW EFFECTS
    ================== */
-.player-card, .info-row, .video-placeholder, .login-btn, .social-icons a {
+.player-card,
+.info-row,
+.video-placeholder,
+.login-btn,
+.social-icons a {
     position: relative;
     overflow: hidden !important;
     transition: transform 0.1s ease-out;
@@ -619,9 +808,17 @@ footer {
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.is-active .bar:nth-child(2) { opacity: 0; }
-.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
 
 /* ==================
    SCROLLBAR
@@ -630,7 +827,22 @@ html {
     scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: #0D2A0D ; color: #39FF14 ; border: 1px solid #39FF14; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #39FF14 ; color: #000000; }
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0D2A0D;
+    color: #39FF14;
+    border: 1px solid #39FF14;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #39FF14;
+    color: #000000;
+}

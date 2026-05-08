@@ -55,7 +55,7 @@ const Signup = () => {
                 padding: '180px 20px 60px'
             }}>
                 <div className="hero-content" style={{ textAlign: 'center', marginBottom: '40px' }}>
-                    <img src="/Logo.png" alt="فرصة" style={{ width: '300px', height: 'auto', marginBottom: '15px' }} />
+                    <img src="/Logo Forsa.png" alt="فرصة" style={{ width: '400px', height: 'auto', marginBottom: '15px', objectFit: 'contain' }} />
                     <h2 style={{ color: '#39FF14', fontSize: '1.5rem', fontWeight: 'bold' }}>من هنا تبدأ فرصتك</h2>
                 </div>
 

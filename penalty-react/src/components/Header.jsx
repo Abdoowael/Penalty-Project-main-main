@@ -25,7 +25,7 @@ const Header = () => {
                 <nav>
                     <div className="logo">
                         <Link to="/" className="logo-text" style={{textDecoration: 'none'}}>
-                            <img src="/Logo.png" alt="فرصة" className="header-logo-img" />
+                            <img src="/Logo Forsa.png" alt="فرصة" className="header-logo-img" />
                         </Link>
                     </div>
 
@@ -44,9 +44,7 @@ const Header = () => {
                             <li><Link to="/" className="nav-btn-login" style={{ margin: '0 5px' }} onClick={() => setIsMenuOpen(false)}>الرئيسية</Link></li>
                             <li><Link to="/players" className="nav-btn-login" style={{ margin: '0 5px' }} onClick={() => setIsMenuOpen(false)}>اللاعبين</Link></li>
                             
-                            {user && user.role === 'player' && (
-                                <li><Link to="/seize-opportunity" className="nav-btn-login" style={{ margin: '0 5px' }} onClick={() => setIsMenuOpen(false)}>اغتنم فرصتك</Link></li>
-                            )}
+                            <li><Link to="/seize-opportunity" className="nav-btn-login" style={{ margin: '0 5px' }} onClick={() => setIsMenuOpen(false)}>اغتنم فرصتك</Link></li>
 
                             {user && user.role === 'admin' && (
                                 <>
@@ -70,9 +68,8 @@ const Header = () => {
                         </ul>
 
                         <div className="nav-auth">
-                            {user ? (
+                            {user && user.role !== 'guest' ? (
                                 <div className="auth-user">
-                                    <span>أهلا {user.fullName}</span>
                                     <a href="#" className="nav-logout-btn" onClick={handleLogout}>تسجيل خروج</a>
                                 </div>
                             ) : (

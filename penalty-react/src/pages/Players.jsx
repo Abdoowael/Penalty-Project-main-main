@@ -27,8 +27,13 @@ const Players = () => {
             <div className="main-content" style={{marginTop: '0'}}>
                 <div className="container">
                     <div className="players-grid">
-                        {players?.map(player => (
-                            <div className="player-card" key={player.id} style={{cursor: 'pointer'}} onClick={() => navigate(`/player/${player.id}`)}>
+                        {players?.map((player, index) => (
+                            <div 
+                                className="player-card reveal" 
+                                key={player.id} 
+                                style={{cursor: 'pointer', '--delay': `${(index % 8) * 0.2}s` }} 
+                                onClick={() => navigate(`/player/${player.id}`)}
+                            >
                                 <div className="image-wrapper">
                                     <img src={player.image} alt={player.name} />
                                 </div>
