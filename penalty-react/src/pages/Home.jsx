@@ -19,11 +19,11 @@ const Home = () => {
             <section className="hero">
                 <div className="hero-content">
 
-                    <h1 style={{fontSize: '3.5rem', marginBottom: '10px', fontWeight: '900', textShadow: '0 4px 15px rgba(0,0,0,0.8)'}}>من هنا تبدأ فرصتك</h1>
-                    <p style={{marginTop: '0', fontSize: '2rem', marginBottom: '30px', fontWeight: '500', textShadow: '0 2px 10px rgba(0,0,0,0.8)'}}>من الملعب الصغير ...لفرص كبيرة تستاهلها</p>
-                    <div className="hero-btns" style={{ display: 'flex', gap: '15px', justifyContent: 'center' }}>
-                        <Link to="/seize-opportunity" className="btn-green" style={{ textDecoration: 'none' }}>اغتنم فرصتك</Link>
-                        <Link to="/players" className="btn-white" style={{ textDecoration: 'none' }}>استعراض اللاعبين</Link>
+                    <h1 className="home-hero-title">من هنا تبدأ فرصتك</h1>
+                    <p className="home-hero-subtitle">من الملعب الصغير ...لفرص كبيرة تستاهلها</p>
+                    <div className="hero-btns home-hero-btns">
+                        <Link to="/seize-opportunity" className="btn-green home-hero-btn">اغتنم فرصتك</Link>
+                        <Link to="/players" className="btn-white home-hero-btn">استعراض اللاعبين</Link>
                     </div>
                 </div>
             </section>
@@ -67,25 +67,12 @@ const Home = () => {
                 <button className="show-all reveal" onClick={() => navigate('/players')} style={{marginTop: '40px', border: 'none', cursor: 'pointer', '--delay': '0.6s'}}>عرض كل اللاعبين</button>
             </section>
 
-            <section className="cta" style={{ 
-                height: '350px',
-                background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('/Download Football stadium inside at night with lights Post-Production for free.jfif')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                marginBottom: '80px'
+            <section className="cta home-cta" style={{ 
+                background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('/Download Football stadium inside at night with lights Post-Production for free.jfif')`
             }}>
                 <div className="cta-content">
-                    <h2 style={{ fontSize: '2.5rem', color: 'white', fontWeight: '800', marginBottom: '25px' }}>سجل الآن وابدأ رحلتك نحو الاحتراف</h2>
-                    <Link to="/seize-opportunity" className="cta-btn" style={{ 
-                        background: 'rgba(0,0,0,0.8)', 
-                        color: 'white', 
-                        padding: '12px 40px', 
-                        borderRadius: '5px', 
-                        textDecoration: 'none',
-                        border: '2px solid white',
-                        fontWeight: 'bold',
-                        fontSize: '1.2rem'
-                    }}>أغتنم الفرصة</Link>
+                    <h2 className="home-cta-title">سجل الآن وابدأ رحلتك نحو الاحتراف</h2>
+                    <Link to="/seize-opportunity" className="cta-btn home-cta-btn">أغتنم الفرصة</Link>
                 </div>
             </section>
         </Layout>

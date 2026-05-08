@@ -173,13 +173,13 @@ const PlayerDetails = () => {
                     const embedUrl = getEmbed(externalUrl);
 
                     return (
-                        <div style={{marginTop: '40px', borderTop: '1px solid rgba(57,255,20,0.3)', paddingTop: '30px'}}>
-                            <h2 style={{color: '#39FF14', marginBottom: '20px', textAlign: 'right', fontSize: '22px'}}>🎬 فيديو المهارات</h2>
+                        <div className="skills-video-section">
+                            <h2 className="skills-video-title">🎬 فيديو المهارات</h2>
 
                             {/* Local MP4 Video */}
                             {videoFile && (
-                                <div style={{background: '#000', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(57,255,20,0.2)', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', marginBottom: '20px'}}>
-                                    <video key={videoFile} width="100%" controls preload="metadata" style={{display: 'block', maxHeight: '560px'}}>
+                                <div className="skills-video-card">
+                                    <video key={videoFile} className="skills-video-element" width="100%" controls preload="metadata">
                                         <source src={`/videos/${videoFile}`} type="video/mp4" />
                                         <source src={`/videos/${encodeURIComponent(videoFile)}`} type="video/mp4" />
                                         متصفحك لا يدعم تشغيل الفيديوهات.
@@ -189,7 +189,7 @@ const PlayerDetails = () => {
 
                             {/* External YouTube/Drive Video */}
                             {embedUrl && (
-                                <div style={{position: 'relative', marginBottom: '20px'}}>
+                                <div className="skills-video-embed-wrap">
                                     {/* Delete button - visible to everyone for testing */}
                                     <button
                                         onClick={() => updatePlayerVideo(player.id, '')}
@@ -213,10 +213,10 @@ const PlayerDetails = () => {
                                     >
                                         ✕
                                     </button>
-                                    <div style={{borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(57,255,20,0.2)', boxShadow: '0 10px 40px rgba(0,0,0,0.6)', aspectRatio: '16/9', width: '100%'}}>
+                                    <div className="skills-video-embed-card">
                                         <iframe src={embedUrl} title="فيديو اللاعب" frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen style={{display: 'block', width: '100%', height: '100%'}}>
+                                            allowFullScreen className="skills-video-embed-frame">
                                         </iframe>
                                     </div>
                                 </div>

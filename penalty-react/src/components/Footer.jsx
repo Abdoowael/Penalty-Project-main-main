@@ -18,9 +18,9 @@ const Footer = () => {
                     <a href="https://whatsapp.com/channel/0029Vb0mEhS9WtC1Gpl6ur1d" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel"><i className="fab fa-whatsapp"></i></a>
                 </div>
                 <div className="footer-right" style={{ flex: '1 1 auto', textAlign: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
-                    <div className="footer-tagline" style={{ fontSize: '14px', whiteSpace: 'nowrap' }}>منصة قري مصر للرياضة</div>
+                    <div className="footer-tagline" style={{ fontSize: '14px' }}>منصة قري مصر للرياضة</div>
                     <div className="footer-brand">
-                        <img src="/Logo Forsa.png" alt="فرصة" style={{ height: '120px', width: '450px', objectFit: 'fill' }} />
+                        <img src="/Logo Forsa.png" alt="فرصة" className="footer-logo-media" />
                     </div>
                 </div>
             </div>

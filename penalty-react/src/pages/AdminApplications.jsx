@@ -47,14 +47,15 @@ const AdminApplications = () => {
                                     </div>
 
                                     {app.youtube && (
-                                        <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
+                                        <div style={{ borderRadius: '10px', overflow: 'hidden', aspectRatio: '16 / 9', width: '100%' }}>
                                             <iframe 
                                                 width="100%" 
-                                                height="200" 
+                                                height="100%" 
                                                 src={app.youtube.replace('watch?v=', 'embed/')} 
                                                 title="Player Skills" 
                                                 frameBorder="0" 
                                                 allowFullScreen
+                                                style={{ display: 'block', width: '100%', height: '100%', border: '0' }}
                                             ></iframe>
                                         </div>
                                     )}

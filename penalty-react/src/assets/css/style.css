@@ -18,6 +18,16 @@ body {
     direction: rtl;
 }
 
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+}
+
 .custom-cursor {
     width: 12px;
     height: 12px;
@@ -303,16 +313,17 @@ nav {
 }
 
 .logo img {
-    height: 110px;
-    width: 450px;
-    object-fit: fill;
+    width: min(450px, 92vw);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
     transition: height 0.3s ease;
 }
 
 @media (max-width: 1024px) {
     .logo img {
-        height: 50px;
-        width: 180px;
+        width: min(220px, 60vw);
+        height: auto;
     }
 }
 
@@ -426,6 +437,31 @@ nav ul li a.active {
 
 .hero-brand {
     text-align: center;
+}
+
+.home-hero-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: 10px;
+    font-weight: 900;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.home-hero-subtitle {
+    margin-top: 0;
+    font-size: clamp(1.1rem, 3.8vw, 2rem);
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.home-hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.home-hero-btn {
+    text-decoration: none;
 }
 
 /* Buttons */
@@ -664,6 +700,30 @@ nav ul li a.active {
     box-shadow: 0 6px 25px rgba(57, 255, 20, 0.4);
 }
 
+.home-cta {
+    min-height: 350px;
+    margin-bottom: 80px;
+}
+
+.home-cta-title {
+    font-size: clamp(1.4rem, 4.6vw, 2.5rem);
+    color: white;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.home-cta-btn {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 2px solid white;
+    font-weight: bold;
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
+}
+
 /* ==================
    FOOTER
    ================== */
@@ -753,7 +813,88 @@ footer {
     width: 180px;
 }
 
+.footer-logo-media {
+    width: min(450px, 90vw);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.signup-logo-media {
+    width: min(400px, 92vw);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 @media (max-width: 768px) {
+    .hero {
+        min-height: 92svh;
+        padding-top: 110px;
+    }
+
+    .hero-content {
+        margin-top: 40px;
+        width: min(92vw, 560px);
+    }
+
+    .home-hero-subtitle {
+        margin-bottom: 18px;
+        line-height: 1.7;
+    }
+
+    .home-hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .home-hero-btn {
+        width: min(320px, 90vw);
+        margin: 0;
+        text-align: center;
+        padding: 12px 20px;
+    }
+
+    .players {
+        padding: 55px 16px;
+    }
+
+    .section-title {
+        font-size: 26px;
+        margin-bottom: 28px;
+    }
+
+    .players-grid {
+        gap: 14px;
+        margin-bottom: 26px;
+    }
+
+    .player-card img {
+        height: 220px;
+    }
+
+    .show-all {
+        width: min(320px, 90vw);
+        padding: 12px 20px;
+    }
+
+    .home-cta {
+        min-height: 260px;
+        margin-bottom: 40px;
+        padding: 24px 16px;
+    }
+
+    .home-cta-title {
+        margin-bottom: 16px;
+    }
+
+    .home-cta-btn {
+        display: inline-block;
+        width: min(320px, 90vw);
+        padding: 11px 16px;
+    }
+
     footer {
         padding: 15px 20px 10px !important;
     }
@@ -771,6 +912,14 @@ footer {
     .footer-right .footer-brand img {
         width: 200px !important;
         height: 60px !important;
+    }
+
+    .footer-logo-media {
+        width: min(280px, 84vw);
+    }
+
+    .signup-logo-media {
+        width: min(300px, 84vw);
     }
 
     .footer-tagline {

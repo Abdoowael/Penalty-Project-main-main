@@ -112,4 +112,5 @@
 
 @media (max-width: 600px) {
     .players-grid { grid-template-columns: 1fr; }
+    .image-wrapper { height: 180px; }
 }
