@@ -2,7 +2,7 @@ const Footer = () => {
     return (
         <footer style={{ 
             background: '#0D2A0D', 
-            padding: '15px 50px 10px',
+            padding: '10px 34px 8px',
             borderTop: '2px solid #39FF14'
         }}>
             <div className="footer-container" style={{
@@ -18,7 +18,7 @@ const Footer = () => {
                     <a href="https://whatsapp.com/channel/0029Vb0mEhS9WtC1Gpl6ur1d" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel"><i className="fab fa-whatsapp"></i></a>
                 </div>
                 <div className="footer-right" style={{ flex: '1 1 auto', textAlign: 'center', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
-                    <div className="footer-tagline" style={{ fontSize: '14px' }}>منصة قري مصر للرياضة</div>
+                    <div className="footer-tagline" style={{ fontSize: '12px' }}>منصة قري مصر للرياضة</div>
                     <div className="footer-brand">
                         <img src="/Logo Forsa.png" alt="فرصة" className="footer-logo-media" />
                     </div>
