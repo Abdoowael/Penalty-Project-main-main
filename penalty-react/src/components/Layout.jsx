@@ -57,6 +57,7 @@ const Layout = ({ children }) => {
                 el.removeEventListener('mouseenter', handleMouseEnter);
                 el.removeEventListener('mouseleave', handleMouseLeave);
             });
+            observer.disconnect();
         };
     }, []);
 

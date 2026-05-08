@@ -19,8 +19,8 @@ const Home = () => {
             <section className="hero">
                 <div className="hero-content">
 
-                    <h1 style={{fontSize: '2.2rem', marginBottom: '10px'}}>من هنا تبدأ فرصتك</h1>
-                    <p style={{marginTop: '0', fontSize: '1.3rem', marginBottom: '30px'}}>من الملعب الصغير ...لفرص كبيرة تستاهلها</p>
+                    <h1 style={{fontSize: '3.5rem', marginBottom: '10px', fontWeight: '900', textShadow: '0 4px 15px rgba(0,0,0,0.8)'}}>من هنا تبدأ فرصتك</h1>
+                    <p style={{marginTop: '0', fontSize: '2rem', marginBottom: '30px', fontWeight: '500', textShadow: '0 2px 10px rgba(0,0,0,0.8)'}}>من الملعب الصغير ...لفرص كبيرة تستاهلها</p>
                     <div className="hero-btns" style={{ display: 'flex', gap: '15px', justifyContent: 'center' }}>
                         <Link to="/seize-opportunity" className="btn-green" style={{ textDecoration: 'none' }}>اغتنم فرصتك</Link>
                         <Link to="/players" className="btn-white" style={{ textDecoration: 'none' }}>استعراض اللاعبين</Link>

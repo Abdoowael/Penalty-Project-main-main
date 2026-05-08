@@ -32,7 +32,7 @@ export const PlayersProvider = ({ children }) => {
 
     const addPlayer = (newPlayer) => {
         const maxId = players.reduce((max, player) => Math.max(max, player.id), 0);
-        
+
         const playerToAdd = {
             id: maxId + 1,
             name: newPlayer.name,
@@ -83,13 +83,13 @@ export const PlayersProvider = ({ children }) => {
     };
 
     return (
-        <PlayersContext.Provider value={{ 
-            players, 
-            addPlayer, 
-            deletePlayer, 
-            applications, 
-            submitApplication, 
-            approveApplication, 
+        <PlayersContext.Provider value={{
+            players,
+            addPlayer,
+            deletePlayer,
+            applications,
+            submitApplication,
+            approveApplication,
             rejectApplication,
             updatePlayerVideo
         }}>
