@@ -39,9 +39,29 @@ const Login = () => {
 
     return (
         <Layout>
-            <main className="login-page">
+            <section className="hero" style={{
+                height: '350px',
+                background: `url('/bg-new.jpeg')`,
+                backgroundSize: '100% 100%',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center'
+            }}>
+            </section>
 
-                <section className="login-wrapper">
+            <div style={{
+                padding: '60px 20px 80px',
+                background: '#071A07',
+                direction: 'rtl',
+                minHeight: 'calc(100vh - 350px)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-start'
+            }}>
+                <section className="login-wrapper" style={{ width: '100%', maxWidth: '440px' }}>
                 <h1>انشاء حساب / تسجيل الدخول</h1>
                 <p className="login-subtitle">سجل دخولك وابدأ رحلتك مع فرصة</p>
                 <form onSubmit={handleSubmit} noValidate className="login-box">
@@ -116,7 +136,7 @@ const Login = () => {
                     </div>
                 </form>
             </section>
-            </main>
+            </div>
         </Layout>
     );
 };
