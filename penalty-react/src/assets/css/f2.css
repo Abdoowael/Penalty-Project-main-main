@@ -6,9 +6,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #000000;
-    background-size: cover;
-    background-position: center;
+    background: url('/bg-new.jpeg') center / 100% 100% no-repeat;
     padding: 20px;
     direction: rtl;
 }

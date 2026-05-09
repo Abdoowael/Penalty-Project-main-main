@@ -5,16 +5,16 @@ const Contact = () => {
         <Layout>
             <section className="hero" style={{
                 height: '350px',
-                background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7), #000000), url('/stadium-bg.jpeg')`,
-                backgroundSize: 'cover',
+                background: `url('/bg-new.jpeg')`,
+                backgroundSize: '100% 100%',
                 backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 textAlign: 'center'
             }}>
                 <div className="hero-content">
-
                     <h1 style={{fontSize: '2rem', marginBottom: '10px'}}>تواصل معنا</h1>
                     <p style={{fontSize: '1.1rem', color: 'rgba(255,255,255,0.55)'}}>نحن هنا لمساعدتك</p>
                 </div>
@@ -22,11 +22,10 @@ const Contact = () => {
 
             <div style={{
                 padding: '60px 20px 80px',
-                background: '#000000',
+                background: '#0D2A0D',
                 direction: 'rtl'
             }}>
                 <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px', marginBottom: '50px' }}>
                         <div style={{
                             background: '#0D2A0D',
@@ -74,27 +73,21 @@ const Contact = () => {
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 color: '#39FF14', fontSize: '20px', textDecoration: 'none',
                                 transition: 'all 0.3s'
-                            }}>
-                                <i className="fab fa-facebook-f"></i>
-                            </a>
+                            }}><i className="fab fa-facebook-f"></i></a>
                             <a href="#" style={{
                                 width: '50px', height: '50px', borderRadius: '50%',
                                 background: '#0D2A0D', border: '1px solid rgba(57, 255, 20, 0.2)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 color: '#39FF14', fontSize: '20px', textDecoration: 'none',
                                 transition: 'all 0.3s'
-                            }}>
-                                <i className="fab fa-instagram"></i>
-                            </a>
+                            }}><i className="fab fa-instagram"></i></a>
                             <a href="https://whatsapp.com/channel/0029Vb0mEhS9WtC1Gpl6ur1d" target="_blank" rel="noopener noreferrer" style={{
                                 width: '50px', height: '50px', borderRadius: '50%',
                                 background: '#0D2A0D', border: '1px solid rgba(57, 255, 20, 0.2)',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 color: '#39FF14', fontSize: '20px', textDecoration: 'none',
                                 transition: 'all 0.3s'
-                            }}>
-                                <i className="fab fa-whatsapp"></i>
-                            </a>
+                            }}><i className="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
@@ -102,5 +95,4 @@ const Contact = () => {
         </Layout>
     );
 };
-
 export default Contact;

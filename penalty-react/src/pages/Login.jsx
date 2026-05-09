@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Layout from '../components/Layout';
 import '../assets/css/f2.css';
 
 const Login = () => {
@@ -37,9 +38,10 @@ const Login = () => {
     };
 
     return (
-        <main className="login-page">
+        <Layout>
+            <main className="login-page">
 
-            <section className="login-wrapper">
+                <section className="login-wrapper">
                 <h1>انشاء حساب / تسجيل الدخول</h1>
                 <p className="login-subtitle">سجل دخولك وابدأ رحلتك مع فرصة</p>
                 <form onSubmit={handleSubmit} noValidate className="login-box">
@@ -114,7 +116,8 @@ const Login = () => {
                     </div>
                 </form>
             </section>
-        </main>
+            </main>
+        </Layout>
     );
 };
 
