@@ -6,20 +6,29 @@ export const PlayersContext = createContext();
 export const PlayersProvider = ({ children }) => {
     const [players, setPlayers] = useState(() => {
         const savedPlayers = localStorage.getItem('playersData');
+        let initialList = initialPlayersData;
         if (savedPlayers) {
             const parsed = JSON.parse(savedPlayers);
             // Merge: keep saved data but fill missing fields from initialPlayersData
-            return initialPlayersData.map(orig => {
+            initialList = initialPlayersData.map(orig => {
                 const saved = parsed.find(p => p.id === orig.id);
                 return saved ? { ...orig, ...saved } : orig;
             }).concat(parsed.filter(p => !initialPlayersData.find(o => o.id === p.id)));
         }
-        return initialPlayersData;
+        // Filter out the unwanted player to ensure he is removed from state and subsequently localStorage
+        return initialList.filter(p => 
+            p.name !== "سعد محمد طلبة" && 
+            p.name !== "سعد محمد طلبه"
+        );
     });
 
     const [applications, setApplications] = useState(() => {
         const savedApps = localStorage.getItem('playerApplications');
-        return savedApps ? JSON.parse(savedApps) : [];
+        const apps = savedApps ? JSON.parse(savedApps) : [];
+        return apps.filter(app => 
+            app.name !== "سعد محمد طلبة" && 
+            app.name !== "سعد محمد طلبه"
+        );
     });
 
     useEffect(() => {
