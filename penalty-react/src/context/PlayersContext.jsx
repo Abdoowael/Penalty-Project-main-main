@@ -5,7 +5,7 @@ export const PlayersContext = createContext();
 
 export const PlayersProvider = ({ children }) => {
     const [players, setPlayers] = useState(() => {
-        const savedPlayers = localStorage.getItem('playersData');
+        const savedPlayers = localStorage.getItem('playersData_v2');
         let initialList = initialPlayersData;
         if (savedPlayers) {
             const parsed = JSON.parse(savedPlayers);
@@ -32,7 +32,7 @@ export const PlayersProvider = ({ children }) => {
     });
 
     useEffect(() => {
-        localStorage.setItem('playersData', JSON.stringify(players));
+        localStorage.setItem('playersData_v2', JSON.stringify(players));
     }, [players]);
 
     useEffect(() => {
