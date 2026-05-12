@@ -9,10 +9,11 @@ export const PlayersProvider = ({ children }) => {
         let initialList = initialPlayersData;
         if (savedPlayers) {
             const parsed = JSON.parse(savedPlayers);
-            // Merge: keep saved data but fill missing fields from initialPlayersData
+            // Merge: source-code data (orig) always wins for core fields,
+            // but we keep localStorage-only fields like youtube
             initialList = initialPlayersData.map(orig => {
                 const saved = parsed.find(p => p.id === orig.id);
-                return saved ? { ...orig, ...saved } : orig;
+                return saved ? { ...saved, ...orig, youtube: saved.youtube || orig.youtube } : orig;
             }).concat(parsed.filter(p => !initialPlayersData.find(o => o.id === p.id)));
         }
         // Filter out the unwanted player to ensure he is removed from state and subsequently localStorage
