@@ -5,19 +5,22 @@ import { AuthContext } from '../context/AuthContext';
 import { PlayersContext } from '../context/PlayersContext';
 import '../assets/css/profile.css';
 
-// ربط ثابت بين id اللاعب وملف الفيديو - يعمل بغض النظر عن localStorage
+// ربط ثابت بين id اللاعب وملفات الفيديو - يعمل بغض النظر عن localStorage
 const PLAYER_VIDEOS = {
-    1: 'محمد احمد جمعه.mp4',
-    2: 'احمد عزمي محمود.mp4',
-    3: 'يوسف سامح يوسف عماره.mp4',
-    5: 'عبدالله فارس.mp4',
-    6: 'حمدي محمد ابراهيم صبري.mp4',
-    7: 'علي محمد السيد ابو المعاطي.mp4',
-    8: 'ابراهيم عبد الباسط جمال عبدة.mp4',
-    9: 'عبد الرحمن جميل.mp4',
-    10: 'مصطفي زينهم رشاد.mp4',
-    11: 'عمر الخطيب.mp4',
-    12: 'زياد احمد مصطفي ابراهيم.mp4',
+    1: ['محمد احمد جمعه.mp4', 'محمد أحمد جمعه.mp4'],
+    2: ['احمد عزمي محمود.mp4', 'احمد عزمي محمود (2).mp4'],
+    3: ['يوسف سامح يوسف عماره.mp4', 'يوسف سامح يوسف عماره (2).mp4'],
+    5: ['عبدالله فارس.mp4', 'عبدالله فارس (2).mp4'],
+    6: ['حمدي محمد ابراهيم صبري.mp4', 'حمدي ابراهيم صبري.mp4'],
+    7: ['علي محمد السيد ابو المعاطي.mp4', 'علي محمد السيد ابو المعاطي (2).mp4'],
+    8: ['ابراهيم عبد الباسط جمال عبدة.mp4', 'ابراهيم عبد الباسط جمال عبده.mp4'],
+    9: ['عبد الرحمن جميل.mp4', 'عبدالرحمن جميل.mp4'],
+    10: ['مصطفي زينهم رشاد.mp4', 'مصطفي زينهم رشاد (2).mp4'],
+    11: ['عمر الخطيب.mp4', 'عمر الخطيب (2).mp4'],
+    12: ['زياد احمد مصطفي ابراهيم.mp4', 'زياد احمد مصطفي ابراهيم (2).mp4'],
+    13: ['عبدالله شعبان.mp4', 'عبدالله شعبان (2).mp4'],
+    14: ['محمد الحسيني.mp4', 'محمد الحسيني (2).mp4'],
+    15: ['يوسف اسامه منير درويش.mp4', 'يوسف اسامه منير درويش (2).mp4'],
 };
 
 const PlayerDetails = () => {
@@ -92,6 +95,13 @@ const PlayerDetails = () => {
         );
     }
 
+    // Build video files list from PLAYER_VIDEOS mapping or fallback to player data
+    const playerVideos = PLAYER_VIDEOS[player.id] || [];
+    const videoFile1 = playerVideos[0] || player.videoFile || '';
+    const videoFile2 = playerVideos[1] || player.videoFile2 || '';
+    // If no second video exists, duplicate the first one
+    const effectiveVideo2 = videoFile2 || videoFile1;
+
     return (
         <Layout>
             <section className="hero" style={{ height: '400px', background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7), #000000), url('/stadium-bg.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
@@ -160,7 +170,6 @@ const PlayerDetails = () => {
 
                 {/* Video Section */}
                 {(() => {
-                    const videoFile = PLAYER_VIDEOS[player.id] || player.videoFile || '';
                     const externalUrl = player.youtube || '';
                     const getEmbed = (url) => {
                         if (!url) return null;
@@ -176,14 +185,38 @@ const PlayerDetails = () => {
                         <div className="skills-video-section">
                             <h2 className="skills-video-title">🎬 فيديو المهارات</h2>
 
-                            {/* Local MP4 Video */}
-                            {videoFile && (
-                                <div className="skills-video-card">
-                                    <video key={videoFile} className="skills-video-element" width="100%" controls preload="metadata">
-                                        <source src={`/videos/${videoFile}`} type="video/mp4" />
-                                        <source src={`/videos/${encodeURIComponent(videoFile)}`} type="video/mp4" />
-                                        متصفحك لا يدعم تشغيل الفيديوهات.
-                                    </video>
+                            {/* Two Local MP4 Videos in Grid */}
+                            {videoFile1 && (
+                                <div className="videos-grid">
+                                    {/* Video 1 */}
+                                    <div className="video-grid-item">
+                                        <div className="video-label">
+                                            <span className="video-label-icon">▶</span>
+                                            <span>الفيديو الأول</span>
+                                        </div>
+                                        <div className="skills-video-card">
+                                            <video key={videoFile1} className="skills-video-element" width="100%" controls preload="metadata">
+                                                <source src={`/videos/${videoFile1}`} type="video/mp4" />
+                                                <source src={`/videos/${encodeURIComponent(videoFile1)}`} type="video/mp4" />
+                                                متصفحك لا يدعم تشغيل الفيديوهات.
+                                            </video>
+                                        </div>
+                                    </div>
+
+                                    {/* Video 2 */}
+                                    <div className="video-grid-item">
+                                        <div className="video-label">
+                                            <span className="video-label-icon">▶</span>
+                                            <span>الفيديو الثاني</span>
+                                        </div>
+                                        <div className="skills-video-card">
+                                            <video key={effectiveVideo2} className="skills-video-element" width="100%" controls preload="metadata">
+                                                <source src={`/videos/${effectiveVideo2}`} type="video/mp4" />
+                                                <source src={`/videos/${encodeURIComponent(effectiveVideo2)}`} type="video/mp4" />
+                                                متصفحك لا يدعم تشغيل الفيديوهات.
+                                            </video>
+                                        </div>
+                                    </div>
                                 </div>
                             )}
 
@@ -213,6 +246,10 @@ const PlayerDetails = () => {
                                     >
                                         ✕
                                     </button>
+                                    <div className="video-label" style={{ marginBottom: '10px' }}>
+                                        <span className="video-label-icon">🔗</span>
+                                        <span>فيديو خارجي</span>
+                                    </div>
                                     <div className="skills-video-embed-card">
                                         <iframe src={embedUrl} title="فيديو اللاعب" frameBorder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -222,7 +259,7 @@ const PlayerDetails = () => {
                                 </div>
                             )}
 
-                            {!videoFile && !embedUrl && (
+                            {!videoFile1 && !embedUrl && (
                                 <div style={{ padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px dashed rgba(255,255,255,0.15)', textAlign: 'center' }}>
                                     <p style={{ color: 'rgba(255,255,255,0.4)' }}>لا يوجد فيديو مهارات متاح لهذا اللاعب حالياً.</p>
                                 </div>
@@ -233,12 +270,7 @@ const PlayerDetails = () => {
                                 {!showVideoForm ? (
                                     <button
                                         onClick={() => setShowVideoForm(true)}
-                                        style={{
-                                            background: 'transparent', color: '#39FF14', border: '1px solid #39FF14',
-                                            padding: '10px 24px', borderRadius: '25px', cursor: 'pointer',
-                                            fontSize: '14px', fontWeight: '600', transition: 'all 0.3s',
-                                            display: 'flex', alignItems: 'center', gap: '8px'
-                                        }}
+                                        className="add-video-btn"
                                     >
                                         ➕ إضافة رابط فيديو (YouTube / Drive)
                                     </button>

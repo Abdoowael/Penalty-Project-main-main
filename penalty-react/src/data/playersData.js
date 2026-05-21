@@ -9,7 +9,8 @@ export const playersData = [
         image: "/mohamed.jpg",
         description: "تفاصيل لاعب محمد أحمد جمعة",
         youtube: "",
-        videoFile: "محمد احمد جمعه.mp4"
+        videoFile: "محمد احمد جمعه.mp4",
+        videoFile2: "محمد أحمد جمعه.mp4"
     },
     {
         id: 2,
@@ -21,7 +22,8 @@ export const playersData = [
         image: "/ahmed.jpg",
         description: "تفاصيل لاعب أحمد عزمي محمود",
         youtube: "",
-        videoFile: "احمد عزمي محمود.mp4"
+        videoFile: "احمد عزمي محمود.mp4",
+        videoFile2: "احمد عزمي محمود (2).mp4"
     },
     {
         id: 3,
@@ -33,7 +35,8 @@ export const playersData = [
         image: "/Joe.jpg",
         description: "تفاصيل لاعب يوسف سامح",
         youtube: "",
-        videoFile: "يوسف سامح يوسف عماره.mp4"
+        videoFile: "يوسف سامح يوسف عماره.mp4",
+        videoFile2: "يوسف سامح يوسف عماره (2).mp4"
     },
     {
         id: 5,
@@ -45,7 +48,8 @@ export const playersData = [
         image: "/abdo.jpg",
         description: "تفاصيل حارس المرمى عبدالله فارس",
         youtube: "",
-        videoFile: "عبدالله فارس.mp4"
+        videoFile: "عبدالله فارس.mp4",
+        videoFile2: "عبدالله فارس (2).mp4"
     },
     {
         id: 6,
@@ -57,7 +61,8 @@ export const playersData = [
         image: "/hamdi.jpg",
         description: "تفاصيل حمدي محمد",
         youtube: "",
-        videoFile: "حمدي محمد ابراهيم صبري.mp4"
+        videoFile: "حمدي محمد ابراهيم صبري.mp4",
+        videoFile2: "حمدي ابراهيم صبري.mp4"
     },
     {
         id: 7,
@@ -69,7 +74,8 @@ export const playersData = [
         image: "/ali.jpg",
         description: "تفاصيل علي محمد",
         youtube: "",
-        videoFile: "علي محمد السيد ابو المعاطي.mp4"
+        videoFile: "علي محمد السيد ابو المعاطي.mp4",
+        videoFile2: "علي محمد السيد ابو المعاطي (2).mp4"
     },
     {
         id: 8,
@@ -81,7 +87,8 @@ export const playersData = [
         image: "/ibra.jpg",
         description: "تفاصيل ابراهيم عبد الباسط",
         youtube: "",
-        videoFile: "ابراهيم عبد الباسط جمال عبدة.mp4"
+        videoFile: "ابراهيم عبد الباسط جمال عبدة.mp4",
+        videoFile2: "ابراهيم عبد الباسط جمال عبده.mp4"
     },
     {
         id: 9,
@@ -93,7 +100,8 @@ export const playersData = [
         image: "/abd.jpg",
         description: "تفاصيل عبدالرحمن جميل",
         youtube: "",
-        videoFile: "عبد الرحمن جميل.mp4"
+        videoFile: "عبد الرحمن جميل.mp4",
+        videoFile2: "عبدالرحمن جميل.mp4"
     },
     {
         id: 10,
@@ -105,7 +113,8 @@ export const playersData = [
         image: "/mous.jpg",
         description: "تفاصيل مصطفى زنهم",
         youtube: "",
-        videoFile: "مصطفي زينهم رشاد.mp4"
+        videoFile: "مصطفي زينهم رشاد.mp4",
+        videoFile2: "مصطفي زينهم رشاد (2).mp4"
     },
     {
         id: 11,
@@ -117,7 +126,8 @@ export const playersData = [
         image: "/omar.jpg",
         description: "تفاصيل عمر الخطيب",
         youtube: "",
-        videoFile: "عمر الخطيب.mp4"
+        videoFile: "عمر الخطيب.mp4",
+        videoFile2: "عمر الخطيب (2).mp4"
     },
     {
         id: 12,
@@ -129,6 +139,46 @@ export const playersData = [
         image: "/zead.jpg",
         description: "تفاصيل زياد أحمد",
         youtube: "",
-        videoFile: "زياد احمد مصطفي ابراهيم.mp4"
+        videoFile: "زياد احمد مصطفي ابراهيم.mp4",
+        videoFile2: "زياد احمد مصطفي ابراهيم (2).mp4"
+    },
+    {
+        id: 13,
+        name: "عبدالله شعبان",
+        year: "2008",
+        position: "وسط",
+        residence: "المنصورة",
+        club: "أكاديمية المنصورة",
+        image: "/عبدالله شعبان.jpeg",
+        description: "تفاصيل عبدالله شعبان",
+        youtube: "",
+        videoFile: "عبدالله شعبان.mp4",
+        videoFile2: "عبدالله شعبان (2).mp4"
+    },
+    {
+        id: 14,
+        name: "محمد الحسيني",
+        year: "2007",
+        position: "مهاجم",
+        residence: "المنصورة",
+        club: "أكاديمية المنصورة",
+        image: "/محمد الحسيني.jpeg",
+        description: "تفاصيل محمد الحسيني",
+        youtube: "",
+        videoFile: "محمد الحسيني.mp4",
+        videoFile2: "محمد الحسيني (2).mp4"
+    },
+    {
+        id: 15,
+        name: "يوسف أسامه منير درويش",
+        year: "2009",
+        position: "جناح",
+        residence: "المنصورة",
+        club: "أكاديمية المنصورة",
+        image: "/يوسف اسامه منير درويش.jpeg",
+        description: "تفاصيل يوسف أسامه منير درويش",
+        youtube: "",
+        videoFile: "يوسف اسامه منير درويش.mp4",
+        videoFile2: "يوسف اسامه منير درويش (2).mp4"
     }
 ];
